@@ -1,12 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sexoooo</title>
+  <meta charset="UTF-8">
+  <title>Avenida de los Presidentes Vicentinos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #00264d;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .imagen {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contenido {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .contenido h3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00264d;
+      margin-bottom: 5px;
+    }
+
+    .contenido p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 15px;
+      background: #00264d;
+      color: white;
+      border-radius: 10px;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: aparecer 0.3s ease;
+      text-align: center;
+    }
+
+    @keyframes aparecer {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: red;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin: 20px auto;
+    }
+
+    .modal-content h2 {
+      font-size: 24px;
+      color: #00264d;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
-    <h1>hola mundo</h1>
-    <h2>hola</h2>
-</body>                             
+
+  <header>
+    <h1>Avenida de los Presidentes Vicentinos</h1>
+    <p>Desde 1841 hasta la eternidad</p>
+  </header>
+
+  <section class="galeria">
+    <!-- CARD 1 -->
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal(
+      'Juan Vicente Gómez',
+      'https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg',
+      '1908 - 1935',
+      'Fue presidente de Venezuela desde 1908 hasta 1935. Consolidó el Estado moderno, impulsó obras de infraestructura, pero su gobierno fue autoritario.')">
+      <div class="imagen">
+        <img src="https://www.biografiasyvidas.com/biografia/g/fotos/gomez_juan_vicente_2.jpg" alt="Juan Vicente Gómez">
+      </div>
+      <div class="contenido">
+        <h3>Juan Vicente Gómez</h3>
+        <p>1908 - 1935</p>
+      </div>
+    </div>
+
+    <!-- Puedes copiar esto para más presidentes -->
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="miModal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <h2 id="modalNombre"></h2>
+      <img id="modalImagen" src="" alt="Foto del Presidente">
+      <p><strong>Periodo:</strong> <span id="modalPeriodo"></span></p>
+      <p id="modalDescripcion"></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Unidad Educativa Vicente Rocafuerte - Desarrollado por Snaider García
+  </footer>
+
+  <script>
+    function abrirModal(nombre, imagen, periodo, descripcion) {
+      document.getElementById("modalNombre").textContent = nombre;
+      document.getElementById("modalImagen").src = imagen;
+      document.getElementById("modalPeriodo").textContent = periodo;
+      document.getElementById("modalDescripcion").textContent = descripcion;
+      document.getElementById("miModal").style.display = "flex";
+    }
+
+    function cerrarModal() {
+      document.getElementById("miModal").style.display = "none";
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById("miModal");
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
 </html>
