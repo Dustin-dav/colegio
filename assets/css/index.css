@@ -21,6 +21,19 @@
       margin-bottom: 1rem;
     }
 
+    .cargando-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        animation: parpadeo 1.2s infinite ease-in-out;
+    }
+
+    @keyframes parpadeo {
+        0%, 100% {opacity: 1;}
+        50% {opacity: 0.3;}
+    }
+    
     #contenido {
       display: none;
     }
+
